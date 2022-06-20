@@ -24,5 +24,10 @@ pipeline {
             junit 'results/*_result.xml'
             cleanWs()
         }
+        failure {  
+             echo 'Se envia el correo en caso de fallar'             
+             echo "${env.JOB_NAME}"
+             echo "${env.BUILD_NUMBER}"
+        }
     }
 }
